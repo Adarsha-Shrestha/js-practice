@@ -17,3 +17,14 @@ function mapp(arr, fn){
 }
 
 console.log(mapp(arr,trans));
+
+// filter function
+const ans = arr.filter((n)=>{
+  if(n % 2 == 0){
+    return true;
+  }else{
+    return false;
+  }
+})
+
+console.log(ans);
