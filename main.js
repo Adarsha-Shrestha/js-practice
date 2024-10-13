@@ -1,19 +1,22 @@
-let arr = [1, 2, 3, 4, 5];
+const express = require("express");
+// const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
+const jwtPassword = "123456";
 
-function trans(i){
-  return i * 2;
-}
+mongoose.connect(
+  "mongodb+srv://adarshashrestha:vgSSiQHWTKD0YZgZ@cluster0.g7ojb.mongodb.net/userappnew",
+);
 
-const newArr = arr.map(trans);
-console.log(newArr);
+const User = mongoose.model("User", {
+  name: String,
+  username: String,
+  pasword: String,
+});
 
-// logic behind map function
-function mapp(arr, fn){
-  let newArr = [];
-  for(let i = 0; i < arr.length; i++){
-    newArr.push(fn(arr[i]));
-  }
-  return newArr;
-}
+const user = new User({
+  name: "Adarsha Shrestha",
+  username: "adarsha",
+  password: '123456'
+});
 
-console.log(mapp(arr,trans));
+user.save();

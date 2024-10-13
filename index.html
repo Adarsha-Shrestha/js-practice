@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Document</title>
 </head>
 <body>
-    <h1>This simple </h1>
+    <script>
+        async function myFunction() {
+            let response = await fetch('https://fakerapi.it/api/v1/persons');
+            let data = await response.json();
+            console.log(data);
+        }
+    </script>
+<button onclick="myFunction()">Click me</button>
 </body>
 </html>
