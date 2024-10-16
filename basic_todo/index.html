@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let globalId = 1;
+
+        function createChild(title, description, id){
+            const div = document.createElement("div");
+            div.id = id;
+            const titleElement = document.createElement("div");
+            titleElement.innerHTML = title;
+            const descriptionElement = document.createElement("div");
+            descriptionElement.innerHTML = description;
+            const Donebutton = document.createElement("button");
+            Donebutton.innerHTML = "Done";
+            Donebutton.onclick = function(){
+                const parent = document.getElementById("container");
+                const child = document.getElementById(id);
+                parent.removeChild(child);
+            }
+            div.appendChild(titleElement);
+            div.appendChild(descriptionElement);
+            div.appendChild(Donebutton);
+            return div;
+        }
+
+        function addTodo(){
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const parent = document.getElementById  ("container");
+            parent.appendChild(createChild(title, description, globalId++));
+        }
+    </script>
+    <div>
+        <input type = "text" id = "title" placeholder="title"></input><br></br>
+        <input type = "text" id = "description" placeholder="description"></input><br></br>
+        <button onclick="addTodo()">Add</button>
+        <div id="container">
+
+        </div>
+    </div>
+</body>
+</html>
