@@ -32,4 +32,11 @@ router.post('/login', async(req,res)=>{
     }
 });
 
+router.get('/data',async(req,res)=>{
+    const userData = await User.find({});
+    res.json({
+        userData
+    });
+})
+
 module.exports = router;
